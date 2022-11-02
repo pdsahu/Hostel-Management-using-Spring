@@ -1,0 +1,104 @@
+create database hostel_management;
+
+show databases;
+
+use hostel_management;
+
+CREATE TABLE Student (
+rollNo int  AUTO_INCREMENT,
+full_name varchar(255) NOT NULL,
+dob varchar(255) NOT NULL,
+bloodgroup varchar(255) NOT NULL,
+email varchar(255) NOT NULL,
+phoneno varchar(255) NOT NULL,
+address varchar(255) NOT Null,
+password varchar(255) NOT NULL,
+PRIMARY KEY (rollNo)
+);
+
+
+
+
+desc student;
+
+
+select * from student;
+
+
+
+ 
+create table roomcategory (
+ 
+id int NOT NULL auto_increment,
+ roomType varchar(255) not null,
+
+ primary key (id)
+);
+ 
+
+
+select * from roomcategory;
+
+ 
+desc roomcategory;
+
+
+ 
+create table room(
+ 
+roomNo varchar(45) not null,
+noOfbeds varchar(45) not null,
+roomType varchar(45) not null,
+ sharString varchar(45) not null,
+ fees varchar(45) not null,
+
+ primary key (roomNo)
+ );
+
+
+desc room;
+ 
+
+select * from room;
+ 
+ 
+    
+select * from book_your_room;
+
+
+desc book_your_room;
+
+
+
+CREATE TABLE `hostel_management`.`book_your_room` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `rollNo` INT NOT NULL,
+  `fullName` VARCHAR(45) NOT NULL,
+  `gender` VARCHAR(45) NOT NULL,
+  `age` VARCHAR(45) NOT NULL,
+  `bookingDate` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `phnNo` VARCHAR(45) NOT NULL,
+  `roomNo` varchar(45) NOT NULL,
+  `sharing` VARCHAR(45) NOT NULL,
+
+  `address` VARCHAR(45) NOT NULL,
+  `status` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `roll_no_fk_idx` (`rollNo` ASC) VISIBLE,
+  INDEX `romm_no_fk_idx` (`roomNo` ASC) VISIBLE,
+  CONSTRAINT `roll_no_fk`
+    FOREIGN KEY (`rollNo`)
+    REFERENCES `hostel_management`.`student` (`rollNo`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `romm_no_fk`
+    FOREIGN KEY (`roomNo`)
+    REFERENCES `hostel_management`.`room` (`roomNo`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
+
+
+select * from book_your_room;
+
+desc book_your_room;	
