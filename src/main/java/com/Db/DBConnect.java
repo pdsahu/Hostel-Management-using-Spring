@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 public class DBConnect {
 
 	//SQL SERVER PASSWORD
-	//Deepbanerjee@23 //@Atiparna07//@Prabhudhan@22
+
 	
 	private static Connection conn;
 	
@@ -16,7 +16,7 @@ public class DBConnect {
 			
 			Class.forName("com.mysql.cj.jdbc.Driver");//loading driver
 			//connection jdbc
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hostel_management","root","Prabhudhan@22");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hostel_management","root","Sql Server Password");
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
